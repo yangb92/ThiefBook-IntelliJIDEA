@@ -1,0 +1,31 @@
+<idea-plugin>
+  <id>com.bin.yang</id>
+  <name>Thief Book</name>
+  <version>1.0</version>
+  <vendor email="523084685@qq.com" url="https://yangb92.github.io">Yang Bin</vendor>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="NextLine" class="com.bin.yang.thiefbook.NextLine" text="NextLine" description="NextLine">
+      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+      <keyboard-shortcut first-keystroke="alt N" keymap="$default"/>
+    </action>
+    <action id="PreLine" class="com.bin.yang.thiefbook.PreLine" text="NextLine" description="NextLine">
+      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+      <keyboard-shortcut first-keystroke="alt P" keymap="$default"/>
+    </action>
+
+  </actions>
+
+</idea-plugin>
