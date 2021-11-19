@@ -17,11 +17,11 @@
 
   <actions>
     <!-- Add your actions here -->
-    <action id="NextLine" class="com.bin.yang.thiefbook.NextLine" text="NextLine" description="NextLine">
+    <action id="NextLine" class="com.bin.yang.thiefbook.NextLine" text="Next Line" description="NextLine">
       <add-to-group group-id="EditorPopupMenu" anchor="first"/>
       <keyboard-shortcut first-keystroke="alt N" keymap="$default"/>
     </action>
-    <action id="PreLine" class="com.bin.yang.thiefbook.PreLine" text="NextLine" description="NextLine">
+    <action id="PreLine" class="com.bin.yang.thiefbook.PreLine" text="Pre Line" description="NextLine">
       <add-to-group group-id="EditorPopupMenu" anchor="first"/>
       <keyboard-shortcut first-keystroke="alt P" keymap="$default"/>
     </action>
