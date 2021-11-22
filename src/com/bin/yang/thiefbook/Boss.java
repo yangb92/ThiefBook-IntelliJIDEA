@@ -8,30 +8,28 @@ import com.intellij.openapi.editor.Caret;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
+import org.assertj.core.util.Strings;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @author leo.yang
- * @date 2021/7/2
+ * @date 2021/11/19
  */
-public class NextLine extends AnAction {
+public class Boss extends AnAction {
 
     @Override
-    public void actionPerformed(AnActionEvent e) {
+    public void actionPerformed(@NotNull AnActionEvent e) {
         Project project = e.getRequiredData(CommonDataKeys.PROJECT);
         Editor editor = e.getData(CommonDataKeys.EDITOR);
         assert editor != null;
         Document document = editor.getDocument();
         Caret primaryCaret = editor.getCaretModel().getPrimaryCaret();
         WriteCommandAction.runWriteCommandAction(project, () -> {
-                    StringBuilder sb = new StringBuilder("// ");
-                    sb.append(Book.nextLine());
-                    sb.append(" \n");
-                    for(int i =100; i < sb.length(); i += 100){
-                        sb.insert(i, "\n //");
-                    }
-                    document.replaceString(primaryCaret.getVisualLineStart(), primaryCaret.getVisualLineEnd(), sb.toString());
-                }
-        );
+            String text = document.getText();
+            if (!Strings.isNullOrEmpty(text)) {
+                document.setText(text.replaceAll("//.+\\n", ""));
+            }
+        });
         primaryCaret.removeSelection();
     }
 }
