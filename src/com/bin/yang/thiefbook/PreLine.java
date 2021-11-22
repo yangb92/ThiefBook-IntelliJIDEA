@@ -25,11 +25,11 @@ public class PreLine extends AnAction {
         Document document = editor.getDocument();
         Caret primaryCaret = editor.getCaretModel().getPrimaryCaret();
         WriteCommandAction.runWriteCommandAction(project, () -> {
-                    StringBuilder sb = new StringBuilder("// ");
+                    StringBuilder sb = new StringBuilder("//- ");
                     sb.append(Book.preLine());
                     sb.append(" \n");
                     for (int i = 100; i < sb.length(); i += 100) {
-                        sb.insert(i, "\n //");
+                        sb.insert(i, "\n//- ");
                     }
                     document.replaceString(primaryCaret.getVisualLineStart(), primaryCaret.getVisualLineEnd(), sb.toString());
                 }

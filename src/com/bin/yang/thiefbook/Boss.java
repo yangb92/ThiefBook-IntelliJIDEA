@@ -27,7 +27,7 @@ public class Boss extends AnAction {
         WriteCommandAction.runWriteCommandAction(project, () -> {
             String text = document.getText();
             if (!Strings.isNullOrEmpty(text)) {
-                document.setText(text.replaceAll("//.+\\n", ""));
+                document.setText(text.replaceAll("//-.+\\n", "\n"));
             }
         });
         primaryCaret.removeSelection();
